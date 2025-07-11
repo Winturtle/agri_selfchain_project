@@ -1,0 +1,72 @@
+[
+  {
+    "index": 0,
+    "timestamp": "2025-07-11T06:25:28.722533800+00:00",
+    "data": {
+      "batch_id": "GENESIS",
+      "name": "Genesis Product",
+      "origin": "N/A",
+      "harvest_date": "N/A",
+      "certifier": "System"
+    },
+    "previous_hash": "0",
+    "hash": "000008598be1adc34fb9dff2e3579b7c6caebce5c9a43c8e2a9d8cb32aad02f5",
+    "nonce": 283728
+  },
+  {
+    "index": 1,
+    "timestamp": "2025-07-11T06:26:00.818150300+00:00",
+    "data": {
+      "batch_id": "2",
+      "name": "高雄蜜棗",
+      "origin": "高雄旗山",
+      "harvest_date": "2025-07-11",
+      "certifier": "老贏股份有限公司"
+    },
+    "previous_hash": "000008598be1adc34fb9dff2e3579b7c6caebce5c9a43c8e2a9d8cb32aad02f5",
+    "hash": "000041fbb56634e50eae789da2dad426d8cb12c8dcd48e9e5a2da05f3ff038c6",
+    "nonce": 197858
+  },
+  {
+    "index": 2,
+    "timestamp": "2025-07-11T06:36:43.902039700+00:00",
+    "data": {
+      "batch_id": "6",
+      "name": "屏東鳳梨",
+      "origin": "屏東內埔",
+      "harvest_date": "2025-07-10",
+      "certifier": "老贏股份有限公司"
+    },
+    "previous_hash": "000041fbb56634e50eae789da2dad426d8cb12c8dcd48e9e5a2da05f3ff038c6",
+    "hash": "0000b7ccad5337c8b13866e976c4d98960dc376535e024f9e7ef2ffc8101364f",
+    "nonce": 10360
+  },
+  {
+    "index": 3,
+    "timestamp": "2025-07-11T06:47:52.108201500+00:00",
+    "data": {
+      "batch_id": "2",
+      "name": "屏東黑珍珠",
+      "origin": "屏東內埔",
+      "harvest_date": "2025-07-08",
+      "certifier": "老贏股份有限公司"
+    },
+    "previous_hash": "0000b7ccad5337c8b13866e976c4d98960dc376535e024f9e7ef2ffc8101364f",
+    "hash": "00004b29b93c91caed2101b5ca2671b700ff9ce14c6efb728b2e53231347186b",
+    "nonce": 91202
+  },
+  {
+    "index": 4,
+    "timestamp": "2025-07-11T06:49:37.573763700+00:00",
+    "data": {
+      "batch_id": "4",
+      "name": "屏東洋蔥",
+      "origin": "屏東恆春",
+      "harvest_date": "2025-07-10",
+      "certifier": "老贏股份有限公司"
+    },
+    "previous_hash": "00004b29b93c91caed2101b5ca2671b700ff9ce14c6efb728b2e53231347186b",
+    "hash": "0000a8cdc6bb57f2de60c2e82eca0700fa4d81fcd5b807b80146201855e0d0e5",
+    "nonce": 92860
+  }
+]
