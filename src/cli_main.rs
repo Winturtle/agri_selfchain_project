@@ -42,6 +42,10 @@ fn main() {
     for block in &chain.chain {
         println!("{:#?}", block);
 	}
+	let chain = Blockchain::load(4);
+    chain.export_csv("chain_export.csv");
+    println!("✅ 鏈資料已匯出至 chain_export.csv");
+
 }
 fn prompt(label: &str) -> String {
     let mut input = String::new();

@@ -1,6 +1,7 @@
 use chrono::Utc;
 use serde::{Serialize, Deserialize};
 use sha2::{Sha256, Digest};
+use crate::merkle::calculate_merkle_root;
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct ProduceBatch {
@@ -15,7 +16,8 @@ pub struct ProduceBatch {
 pub struct Block {
     pub index: u64,
     pub timestamp: String,
-    pub data: ProduceBatch,
+    pub data: Vec<ProduceBatch>,
+	pub merkle_root: String, 
     pub previous_hash: String,
     pub hash: String,
     pub nonce: u64,
@@ -26,6 +28,7 @@ impl Block {
         let timestamp = Utc::now().to_rfc3339();
         let mut nonce = 0;
         let mut hash = String::new();
+		let merkle_root = calculate_merkle_root(&data);
 
         loop {
             let input = format!("{index}{timestamp}{:?}{previous_hash}{nonce}", data);

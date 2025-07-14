@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Agri SelfChain</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>🌾 Agri SelfChain</h1>
+
+  <section>
+    <h2>新增批次</h2>
+    <input id="batch_id" placeholder="批次 ID">
+    <input id="name" placeholder="品名">
+    <input id="origin" placeholder="產地">
+    <input id="harvest_date" placeholder="採收日">
+    <input id="certifier" placeholder="認證者">
+    <button onclick="addBatch()">新增並出鏈</button>
+  </section>
+
+  <section>
+    <h2>查詢批次</h2>
+    <input id="query_id" placeholder="輸入批次 ID">
+    <button onclick="queryBatch()">查詢</button>
+    <pre id="query_result"></pre>
+  </section>
+
+  <section>
+    <h2>鏈合法性</h2>
+    <button onclick="verifyChain()">檢查鏈</button>
+    <p id="verify_result"></p>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

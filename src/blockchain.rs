@@ -11,6 +11,31 @@ pub struct Blockchain {
 }
 
 impl Blockchain {
+	pub fn export_csv(&self, path: &str) {
+        let mut file = File::create(path).expect("無法建立 CSV 檔案");
+        writeln!(
+            file,
+            "block_index,timestamp,batch_id,name,origin,harvest_date,certifier,merkle_root"
+        ).unwrap();
+
+        for block in &self.chain {
+            for batch in &block.data {
+                writeln!(
+                    file,
+                    "{},{},{},{},{},{},{},{}",
+                    block.index,
+                    block.timestamp,
+                    batch.batch_id,
+                    batch.name,
+                    batch.origin,
+                    batch.harvest_date,
+                    batch.certifier,
+                    block.merkle_root
+                ).unwrap();
+            }
+        }
+    }
+
     pub fn new(difficulty: usize) -> Self {
         let genesis_data = ProduceBatch {
             batch_id: "GENESIS".to_string(),
@@ -26,16 +51,27 @@ impl Blockchain {
         }
     }
 
-    pub fn add_block(&mut self, data: ProduceBatch) {
-        let last = self.chain.last().unwrap();
-        let block = Block::new(
-            last.index + 1,
-            data,
-            last.hash.clone(),
-            self.difficulty,
-        );
-        self.chain.push(block);
-    }
+    pub fn add_block(&mut self, data: Vec<ProduceBatch>) {
+    let index = self.chain.len() as u64;
+    let timestamp = Utc::now().to_rfc3339();
+    let previous_hash = self.chain.last().unwrap().hash.clone();
+    let merkle_root = calculate_merkle_root(&data);
+
+    // 雜湊計算包含 merkle_root
+    let (nonce, hash) = self.proof_of_work(index, &timestamp, &data, &previous_hash, &merkle_root);
+
+    let block = Block {
+        index,
+        timestamp,
+        data,
+        merkle_root,
+        previous_hash,
+        hash,
+        nonce,
+    };
+
+    self.chain.push(block);
+}
 
     pub fn is_valid(&self) -> bool {
         for i in 1..self.chain.len() {

@@ -1,0 +1,28 @@
+const { invoke } = window.__TAURI__.tauri;
+
+async function addBatch() {
+  const batch = {
+    batch_id: document.getElementById("batch_id").value,
+    name: document.getElementById("name").value,
+    origin: document.getElementById("origin").value,
+    harvest_date: document.getElementById("harvest_date").value,
+    certifier: document.getElementById("certifier").value,
+  };
+  const success = await invoke("add_batch", { batch });
+  alert(success ? "✅ 已成功出鏈" : "❌ 出鏈失敗");
+}
+
+async function queryBatch() {
+  const batch_id = document.getElementById("query_id").value;
+  const result = await invoke("query_batch", { batchId: batch_id });
+  document.getElementById("query_result").textContent = result
+    ? JSON.stringify(result, null, 2)
+    : "❌ 找不到該批次";
+}
+
+async function verifyChain() {
+  const valid = await invoke("verify_chain");
+  document.getElementById("verify_result").textContent = valid
+    ? "✅ 鏈合法"
+    : "❌ 鏈遭竄改";
+}

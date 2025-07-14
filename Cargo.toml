@@ -17,3 +17,7 @@ path = "src/cli_main.rs"
 [[bin]]
 name = "api"
 path = "src/api_main.rs"
+
+[[bin]]
+name = "tauri"
+path = "src/tauri_main.rs"
