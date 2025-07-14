@@ -1,4 +1,4 @@
-🌾 Agri SelfChain
+🌾 Agri SelfChain  
 Agri SelfChain 是一個以 Rust 建構的農業區塊鏈系統，支援批次資料上鏈、查詢、驗證與桌面操作介面。透過 Merkle Tree 與 Proof of Work 機制，確保農產品資料的完整性與不可竄改性，適用於農民、驗證者與消費者的履歷查驗需求。
 
 🚀 功能特色
